@@ -11,8 +11,6 @@ import UIKit
 class SecondViewController: UIViewController {
     
     @IBOutlet weak var input: UITextField!
-    
-    
     @IBAction func add(_ sender: Any) {
         
         if (input.text != ""){
@@ -30,8 +28,5 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
-
 }
 

@@ -16,15 +16,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var myTableView: UITableView!
     
-    
-    
-    //Populate the table view 
-    
     //@return number of row for table view
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return (list.count)
     }
-    
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = UITableViewCell( style: UITableViewCellStyle.default, reuseIdentifier:"cell")
@@ -32,8 +27,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return (cell)
     }
     
-    // After a row has the minus or plus button invoked (based on the UITableViewCellEditingStyle for the cell), the dataSource must commit the change
-    // Not called for edit actions using UITableViewRowAction - the action's handler will be invoked instead
+    //If swipe left and delete is pressed, delete selected item and redraw display
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == UITableViewCellEditingStyle.delete{
             list.remove(at: indexPath.row)
@@ -42,15 +36,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         myTableView.reloadData()
     }
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
